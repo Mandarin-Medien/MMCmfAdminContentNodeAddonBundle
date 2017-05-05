@@ -107,7 +107,7 @@ class ContentNodeAdminController extends BaseController
             ))
             ->add('save_and_back', SubmitType::class, array(
                 'attr' => array(
-                    'data-target' => $this->container->get('router')->generate('mm_cmf_admin_noderoute')
+                    'data-target' => $this->container->get('router')->generate('mm_cmf_admin_content_node_addon_contentnode')
                 )
             ));
 
