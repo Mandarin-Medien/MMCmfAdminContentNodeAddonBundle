@@ -1,0 +1,29 @@
+{
+  "name": "mandarinmedien/mmcmfadmincontentnodeaddonbundle",
+  "description": "Integrates a CRUD/Administration-GUI of MMCmfContentNode into the MMAdminBundle.",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Christof Hufnagel",
+      "email": "ch@mandarin-medien.de"
+    },
+    {
+      "name": "Toni Gurski",
+      "email": "tg@mandarin-medien.de"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "MandarinMedien\\MMCmfAdminContentNodeAddonBundle": ""
+    }
+  },
+  "target-dir": "MandarinMedien/MMCmfAdminContentNodeAddonBundle",
+  "require": {
+    "mandarinmedien/mmcmfcontentbundle": "^0.1",
+    "mandarinmedien/mmadminbundle": "@dev-master"
+  },
+  "suggest": {
+
+  }
+}

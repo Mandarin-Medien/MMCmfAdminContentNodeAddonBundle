@@ -1,0 +1,31 @@
+mm_cmf_admin_content_node_addon_contentnode:
+    path:     /
+    defaults: { _controller: MMCmfAdminContentNodeAddonBundle:ContentNodeAdmin:index}
+
+mm_cmf_admin_content_node_addon_contentnode_new:
+    path:     /{contentnode_type}/new
+    defaults:
+        _controller: MMCmfAdminContentNodeAddonBundle:ContentNodeAdmin:new
+        contentnode_type: 'contentnode'
+
+mm_cmf_admin_content_node_addon_contentnode_create:
+    path:     /{contentnode_type}/create
+    defaults:
+        _controller: MMCmfAdminContentNodeAddonBundle:ContentNodeAdmin:create
+        contentnode_type: 'contentnode'
+
+mm_cmf_admin_content_node_addon_contentnode_edit:
+    path:     /{id}/edit
+    defaults: { _controller: MMCmfAdminContentNodeAddonBundle:ContentNodeAdmin:edit }
+
+mm_cmf_admin_content_node_addon_contentnode_update:
+    path:     /{id}/update
+    defaults: { _controller: MMCmfAdminContentNodeAddonBundle:ContentNodeAdmin:update }
+
+mm_cmf_admin_content_node_addon_contentnode_delete:
+    path:     /{id}/delete
+    defaults: { _controller: MMCmfAdminContentNodeAddonBundle:ContentNodeAdmin:delete }
+
+mm_cmf_admin_content_node_addon_node_visibilty_toggle:
+    path: /visibilty/{id}/toggle
+    defaults: {_controller: MMCmfAdminContentNodeAddonBundle:ContentNodeAdmin:toggleVisibility}

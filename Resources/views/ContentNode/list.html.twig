@@ -1,0 +1,64 @@
+{% extends '@MMAdmin/Admin/page.html.twig' %}
+
+{% set pageHeadline = "Contentmanagment Section" %}
+{% set pageSubline = "" %}
+
+{% block admin_page_body %}
+
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <div class="box box-default ">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="fa fa-edit"></i> {{ 'Edit Content'|trans }} </h3>
+                </div>
+                <div class="box-body">
+                    <table class="table table-responsive">
+                        <tbody>
+                        {% for contentnode in contentnodes %}
+
+                            {% set contentNodeDiscriminator = contentNodeFactory.discriminatorByClass(contentnode) %}
+
+                            <tr>
+                                <td>{{ contentnode.name }}</td>
+                                <td><i class="{{ contentParser.icon(contentNodeFactory.classByDiscriminator(contentNodeDiscriminator)) }}"></i> {{ contentNodeDiscriminator|trans }}</td>
+                                <td align="right">
+                                    {% spaceless %}
+                                        <a class="btn btn-default" href="{{ path("mm_cmf_admin_content_node_addon_node_visibilty_toggle", {"id" : contentnode.id }) }}">{% if contentnode.visible %}<i class="fa fa-eye"></i> {% else %}<i class="fa fa-eye-slash"></i>{% endif %}</span></a>
+                                        <a rel="ajax" class="btn btn-default" href="{{ path("mm_cmf_admin_content_node_addon_contentnode_edit", {"id" : contentnode.id }) }}"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-danger" href="{{ path("mm_cmf_admin_content_node_addon_contentnode_delete", {"id" : contentnode.id }) }}"><i class="fa fa-trash"></i></a>
+                                    {% endspaceless %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-plus-circle"></i>
+                        {{ 'Content Actions'|trans }}
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ 'Create new Content'|trans }} <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            {% for type in contentNodeFactory.discriminators %}
+                                <li><a href="{{ path('mm_cmf_admin_content_node_addon_contentnode_new', {'contentnode_type' : type}) }}"><i class="{{ contentParser.icon(contentNodeFactory.classByDiscriminator(type)) }}"></i> {{ type|trans }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
