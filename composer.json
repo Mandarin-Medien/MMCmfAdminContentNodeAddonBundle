@@ -14,14 +14,11 @@
     }
   ],
   "autoload": {
-    "psr-0": {
-      "MandarinMedien\\MMCmfAdminContentNodeAddonBundle": ""
-    }
+    "psr-4": {"MandarinMedien\\MMCmf\\Admin\\ContentNodeAddonBundle\\": ""}
   },
-  "target-dir": "MandarinMedien/MMCmfAdminContentNodeAddonBundle",
   "require": {
     "mandarinmedien/mmcmfcontentbundle": "^0.1",
-    "mandarinmedien/mmadminbundle": "@dev-master"
+    "mandarinmedien/mmadminbundle": "^0.3.0"
   },
   "suggest": {
 
